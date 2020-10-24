@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+//var declaration
+$lightgrey: #f4f4f4;
+$grey: #b4b6b8;
+$primary-blue: #4cb6e6;
+
+//styles
+html,
+body {
+  background-color: $lightgrey;
+}
+
+h1 {
+  color: $primary-blue;
+  font-weight: bold;
+  font-size: 20px;
+}
+h2 {
+  color: $grey;
+  font-weight: 100;
+  font-size: 20px;
+}
+h3 {
+  color: $primary-blue;
+  font-weight: bold;
+}
+h4 {
+  color: $grey;
+}
