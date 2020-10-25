@@ -7,8 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostComponent implements OnInit {
   @Input() feed_item;
-
+  industry: string;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('test', this.feed_item);
+    this.industry = this.feed_item.publication.company.industry.replace(
+      /_/gi,
+      ' '
+    );
+  }
 }

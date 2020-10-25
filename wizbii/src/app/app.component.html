@@ -1,13 +1,12 @@
 <div
   fxLayout="column"
   fxLayoutGap="20px"
-  fxFlex="50"
-  fxFlexOffset="25"
+  fxFlex="40"
+  fxFlexOffset="30"
   fxFlex.lt-md="90"
   fxFlexOffset.lt-md="5"
 >
   <app-create-post fxFlexOffset="10"></app-create-post>
-  <div *ngFor="let feed_item of feed_items">
-    <app-post [feed_item]="feed_item"> </app-post>
-  </div>
+  <app-post *ngFor="let feed_item of feed_items" [feed_item]="feed_item">
+  </app-post>
 </div>

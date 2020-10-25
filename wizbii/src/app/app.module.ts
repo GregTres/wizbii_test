@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,11 +8,17 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PostComponent } from './post/post.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { FeedItemsService } from './services/feed-items.service';
 
 @NgModule({
   declarations: [AppComponent, PostComponent, CreatePostComponent],
-  imports: [BrowserModule, AppRoutingModule, FlexLayoutModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FlexLayoutModule
+  ],
+  providers: [FeedItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

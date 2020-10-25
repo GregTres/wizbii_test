@@ -8,29 +8,74 @@
     <img src="../../assets/speech-bubble.png" width="40px" height="40px" />
     <img src="../../assets/user.png" width="40px" height="40px" />
     <div fxLayout="column" fxLayoutAlign="space-around">
-      <h3 class="m-0">Serge Koutouan - il y a 12 heures</h3>
-      <h4 class="m-0">Auditeur, contrôleur de gestion Junior</h4>
+      <h3 class="m-0">
+        {{ feed_item.publication.poster_slug }} - {{ feed_item.date | date }}
+      </h3>
+      <h4 class="m-0">
+        {{ industry }}
+      </h4>
     </div>
   </div>
   <div>
-    <span>#finance #contrôle de gestion #audit</span>
+    <span *ngFor="let tag of feed_item.publication.tags">#{{ tag.name }} </span>
   </div>
-  <div>
-    <p>
-      Salut ! <br />
-      Je suis Serge de MsC INSECC (Lyon). <br />
-      J'ai des connaissances en Finance, controle de gestion, audit et
-      comptabilité. <br />
-      Bye !
-    </p>
+
+  <div [innerHTML]="feed_item.publication.company?.home_tab?.description"></div>
+  <div
+    [innerHTML]="feed_item.publication.company?.recruitment_tab?.description"
+  ></div>
+  <h2 class="m-0">
+    {{ feed_item.publication.company.employees_number }} employés
+  </h2>
+  <h2 class="m-0">
+    Site web:
+    <a href="{{ feed_item.publication.company.website }}">{{
+      feed_item.publication.company.website
+    }}</a>
+  </h2>
+  <div class="mt-1">{{ feed_item.publication?.content }}</div>
+  <div class="post__offer" *ngIf="feed_item.publication?.shared_job">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div>
+        <span
+          >Début de la mission:
+          {{ feed_item.publication?.shared_job?.start_date | date }}</span
+        >
+      </div>
+      <div>
+        <span
+          >Contrat:
+          {{ feed_item.publication?.shared_job?.contract?.title_short }}</span
+        >
+      </div>
+      <div>
+        <span
+          >Lieu: {{ feed_item.publication?.shared_job?.location?.city }},{{
+            feed_item.publication?.shared_job?.location?.state
+          }}</span
+        >
+      </div>
+    </div>
+    <div class="mt-2">{{ feed_item.publication?.shared_job?.title }}</div>
+    <div [innerHTML]="feed_item.publication?.shared_job?.mission"></div>
+    <div
+      class="mt-2"
+      [innerHTML]="feed_item.publication?.shared_job?.profile"
+    ></div>
+    <div class="mt-1">
+      <span
+        >Niveau demandé:
+        {{ feed_item.publication?.shared_job?.degree?.title }}</span
+      >
+    </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-around">
+  <div fxLayout="row" fxLayoutAlign="space-around" fxFlexOffset="10">
     <div fxLayout="column" fxLayoutAlign="space-around center">
-      <img src="../../assets/add.png" width="50px" height="50px" />
+      <img src="../../assets/add.png" width="30px" height="30px" />
       <h2>Envoyer un Thanx !</h2>
     </div>
     <div fxLayout="column" fxLayoutAlign="space-around center">
-      <img src="../../assets/share.png" width="50px" height="50px" />
+      <img src="../../assets/share.png" width="30px" height="30px" />
       <h2>Partager à un ami !</h2>
     </div>
   </div>

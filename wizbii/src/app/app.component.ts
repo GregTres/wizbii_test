@@ -1,4 +1,6 @@
+import { FeedItemsService } from './services/feed-items.service';
 import { Component } from '@angular/core';
+import feed_items from './feed_items';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private feedItemsService: FeedItemsService) {}
   title = 'wizbii';
-  feed_items = [1, 2, 3, 4];
+  feed_items = feed_items.filter(feed_item => feed_item.type === 'publication');
+  ngOnInit(): void {}
 }
