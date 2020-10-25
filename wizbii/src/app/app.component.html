@@ -6,7 +6,9 @@
   fxFlex.lt-md="90"
   fxFlexOffset.lt-md="5"
 >
+  <!--create post box-->
   <app-create-post fxFlexOffset="10"></app-create-post>
+  <!--post boxes-->
   <app-post *ngFor="let feed_item of feed_items" [feed_item]="feed_item">
   </app-post>
 </div>

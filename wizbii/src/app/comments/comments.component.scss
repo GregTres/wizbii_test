@@ -1,0 +1,20 @@
+@import "../../styles.scss";
+
+.post__comments {
+  border-bottom: 1px solid $grey;
+}
+
+.post__comments-number {
+  color: $primary-blue;
+}
+
+.post__likes-number {
+  color: $grey;
+}
+
+input {
+  border: none;
+  background-color: $lightgrey;
+  border-radius: 4px;
+  padding: 10px;
+}

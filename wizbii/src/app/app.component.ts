@@ -10,6 +10,10 @@ import feed_items from './feed_items';
 export class AppComponent {
   constructor(private feedItemsService: FeedItemsService) {}
   title = 'wizbii';
+  //retrieve items and filter them by publication
   feed_items = feed_items.filter(feed_item => feed_item.type === 'publication');
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //fetch feed items (doesn't work)
+    //this.feedItemsService.fetchFeedItems();
+  }
 }

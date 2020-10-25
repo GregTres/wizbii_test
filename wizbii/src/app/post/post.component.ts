@@ -11,7 +11,7 @@ export class PostComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log('test', this.feed_item);
+    //Replace all _ by " "
     this.industry = this.feed_item.publication.company.industry.replace(
       /_/gi,
       ' '

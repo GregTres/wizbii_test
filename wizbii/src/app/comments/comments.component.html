@@ -1,0 +1,36 @@
+<div fxLayout="column">
+  <!--comments header-->
+  <div fxLayout="row" fxLayoutAlign="start" class="post__comments">
+    <p class="post__comments-number">
+      {{ feed_item.publication.comments?.length }} commentaire
+    </p>
+    <p class="post__likes-number">
+      - {{ feed_item.publication.likes?.length }} Thanx
+    </p>
+  </div>
+
+  <!--comments content-->
+  <div fxLayout="column">
+    <div
+      fxLayout="row"
+      *ngIf="feed_item.publication.comments.length"
+      fxFlexOffset="10px"
+      fxLayoutGap="10px"
+    >
+      <img src="../../assets/user.png" width="30px" height="30px" />
+      <div
+        fxLayout="column"
+        *ngFor="let comment of feed_item.publication.comments"
+      >
+        <h3 class="m-0">{{ comment?.name }}</h3>
+        <p class="m-0">{{ comment?.content }}</p>
+        <h4 class="m-0">{{ comment?.date | date }}</h4>
+      </div>
+    </div>
+    <input
+      type="text"
+      placeholder="Ajouter un commentaire..."
+      fxFlexOffset="10px"
+    />
+  </div>
+</div>

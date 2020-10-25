@@ -55,3 +55,14 @@ span {
   padding: 40px;
   box-shadow: 2px 2px 15px $lightgrey;
 }
+
+.btn {
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    h2 {
+      color: $primary-blue;
+    }
+  }
+}
