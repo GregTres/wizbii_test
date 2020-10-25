@@ -4,22 +4,27 @@
   fxLayoutAlign="space-around"
   fxLayoutGap="10px"
 >
+  <!--header-->
   <div fxLayout="row" fxLayoutGap="10px">
     <img src="../../assets/speech-bubble.png" width="40px" height="40px" />
     <img src="../../assets/user.png" width="40px" height="40px" />
     <div fxLayout="column" fxLayoutAlign="space-around">
       <h3 class="m-0">
-        {{ feed_item.publication.poster_slug }} - {{ feed_item.date | date }}
+        {{ feed_item.publication?.poster?.displayName }} -
+        {{ feed_item.date | date }}
       </h3>
       <h4 class="m-0">
         {{ industry }}
       </h4>
     </div>
   </div>
+
+  <!--tags-->
   <div>
     <span *ngFor="let tag of feed_item.publication.tags">#{{ tag.name }} </span>
   </div>
 
+  <!--Company description-->
   <div [innerHTML]="feed_item.publication.company?.home_tab?.description"></div>
   <div
     [innerHTML]="feed_item.publication.company?.recruitment_tab?.description"
@@ -33,7 +38,11 @@
       feed_item.publication.company.website
     }}</a>
   </h2>
+
+  <!--content-->
   <div class="mt-1">{{ feed_item.publication?.content }}</div>
+
+  <!--offer and profile-->
   <div class="post__offer" *ngIf="feed_item.publication?.shared_job">
     <div fxLayout="row" fxLayoutAlign="space-between">
       <div>
@@ -69,6 +78,8 @@
       >
     </div>
   </div>
+
+  <!--like and share-->
   <div fxLayout="row" fxLayoutAlign="space-around" fxFlexOffset="10">
     <div fxLayout="column" fxLayoutAlign="space-around center">
       <img src="../../assets/add.png" width="30px" height="30px" />
@@ -79,6 +90,6 @@
       <h2>Partager à un ami !</h2>
     </div>
   </div>
-  <div></div>
-  <!--<commentaries></commentaries>-->
+
+  <app-comments [feed_item]="feed_item"></app-comments>
 </div>

@@ -9,9 +9,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PostComponent } from './post/post.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { FeedItemsService } from './services/feed-items.service';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
-  declarations: [AppComponent, PostComponent, CreatePostComponent],
+  declarations: [
+    AppComponent,
+    PostComponent,
+    CreatePostComponent,
+    CommentsComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

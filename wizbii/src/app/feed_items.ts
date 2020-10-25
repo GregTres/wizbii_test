@@ -154,8 +154,18 @@ const feed_items = [
           date_modified: '2020-10-23T15:42:23+0000'
         }
       ],
-      comments: [],
-      likes: [],
+      comments: [
+        {
+          name: 'Noel Flantier',
+          content: 'Quelle mission interessante !!',
+          date: '2020-10-23T15:42:23+0000'
+        }
+      ],
+      likes: [
+        {
+          name: 'Jean Dupont'
+        }
+      ],
       reports: [],
       delta: 156419336,
       shared_object_id: 'donner-des-cours-pour-toutes-les-matieres-61',
