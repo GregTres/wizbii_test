@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostComponent implements OnInit {
   @Input() feed_item;
   industry: string;
+  liked: boolean = false;
   constructor() {}
 
   ngOnInit(): void {
@@ -16,5 +17,17 @@ export class PostComponent implements OnInit {
       /_/gi,
       ' '
     );
+  }
+
+  onThanx(): void {
+    //in real app: POST data, here only ui is modified
+    this.liked = !this.liked;
+    this.liked
+      ? this.feed_item.publication.likes.push({
+          name: 'Grégory TRESTOUR'
+        })
+      : this.feed_item.publication.likes.pop({
+          name: 'Grégory TRESTOUR'
+        });
   }
 }

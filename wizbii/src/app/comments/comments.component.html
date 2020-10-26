@@ -12,25 +12,28 @@
   <!--comments content-->
   <div fxLayout="column">
     <div
-      fxLayout="row"
-      *ngIf="feed_item.publication.comments.length"
+      fxLayout="column"
+      *ngFor="let comment of feed_item.publication.comments"
       fxFlexOffset="10px"
       fxLayoutGap="10px"
     >
-      <img src="../../assets/user.png" width="30px" height="30px" />
-      <div
-        fxLayout="column"
-        *ngFor="let comment of feed_item.publication.comments"
-      >
-        <h3 class="m-0">{{ comment?.name }}</h3>
-        <p class="m-0">{{ comment?.content }}</p>
-        <h4 class="m-0">{{ comment?.date | date }}</h4>
+      <div fxLayout="row" fxFlexOffset="10px" fxLayoutGap="10px">
+        <img src="../../assets/user.png" width="30px" height="30px" />
+        <div fxLayout="column">
+          <h3 class="m-0">{{ comment?.name }}</h3>
+          <p class="m-0">{{ comment?.content }}</p>
+          <h4 class="m-0">{{ comment?.date | date }}</h4>
+        </div>
       </div>
     </div>
-    <input
-      type="text"
-      placeholder="Ajouter un commentaire..."
-      fxFlexOffset="10px"
-    />
+    <form (submit)="onSubmit()" fxFlexOffset="10px">
+      <input
+        [(ngModel)]="value"
+        name="comments"
+        type="text"
+        placeholder="Ajouter un commentaire..."
+      />
+      <button type="submit" style="display:none">hidden submit</button>
+    </form>
   </div>
 </div>

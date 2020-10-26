@@ -81,9 +81,14 @@
 
   <!--like and share-->
   <div fxLayout="row" fxLayoutAlign="space-around" fxFlexOffset="10">
-    <button class="btn" fxLayout="column" fxLayoutAlign="space-around center">
+    <button
+      (click)="onThanx()"
+      class="btn"
+      fxLayout="column"
+      fxLayoutAlign="space-around center"
+    >
       <img src="../../assets/add.png" width="30px" height="30px" />
-      <h2>Envoyer un Thanx !</h2>
+      <h2 [ngClass]="{ blue: liked }">Envoyer un Thanx !</h2>
     </button>
     <button class="btn" fxLayout="column" fxLayoutAlign="space-around center">
       <img src="../../assets/share.png" width="30px" height="30px" />
